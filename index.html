@@ -2027,8 +2027,25 @@
               const hasilhsg = document.getElementById("hsg");
               hasilhsg.innerHTML = `<p>${asg}</p>`;
 
+              let timezone;
+              let bujurcalc = 0;
+              if(bujur == 1){
+              bujurcalc = Number(bujur1)+Number(bujur2)/60+Number(bujur3)/3600;
+              }else{
+                bujurcalc = -(Number(bujur1)+Number(bujur2)/60+Number(bujur3)/3600);
+              }
+
+              if (parseInt(bujurcalc/15) == 7){
+                timezone = "WIB";
+              }else if (parseInt(bujurcalc/15) == 8){
+                timezone = "WITA";
+              }else if (parseInt(bujurcalc/15) == 9){
+                timezone = "WIT";
+              }else{
+                timezone = "SALAH";
+              }
               const hasilwtgerhana = document.getElementById("wtgerhana");
-              hasilwtgerhana.innerHTML = `<p>${tmp} - ${bpp}</p>`;
+              hasilwtgerhana.innerHTML = `<p>${tmp} - ${bpp} ${timezone}</p>`;
 
               const hasilkgerhana = document.getElementById("kgerhana");
               hasilkgerhana.innerHTML = `<p>${kawal} - ${kakhir}</p>`;
